@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{%block title%}Register Page{%endblock%}
+
+{%block content%}
+
+
+<div style="text-align: center;">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <br><br>
+        <input type="text" name="first_name" placeholder="FirstName"><br><br>
+        <input type="text" name="last_name" placeholder="LastName"><br><br>
+        <input type="text" name="username" placeholder="UserName"><br><br>
+        <input type="email" name="email" placeholder="Email"><br><br>
+        <input type="password" name="password1" placeholder="Password"><br><br>
+        <input type="password" name="password2" placeholder="Confirm Password"><br><br>
+        <input type="submit">
+        <a href="http://localhost:8000/Credentials/Login">Already Registered</a>
+    </form>
+</div>
+
+{%endblock%}
