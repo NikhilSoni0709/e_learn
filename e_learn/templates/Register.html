@@ -19,5 +19,10 @@
         <a href="http://localhost:8000/Credentials/Login">Already Registered</a>
     </form>
 </div>
+<div style="text-align: center;">
+    {%for message in messages%}
+    {{message}}
+    {%endfor%}
+</div>
 
 {%endblock%}
