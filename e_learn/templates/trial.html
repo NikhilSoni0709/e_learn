@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trial_base</title>
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/reset.css'%}" media="all">
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}" media="all">
-    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/home_trial.css' %}" media="all">
+
 </head>
 <body>
     <header>
@@ -27,9 +28,19 @@
             </li> 
         </ul>
     </header>
-    {% block content %}
-    {% endblock %}
-    
+    <section>
+        <div class="container">
+            <div class="articles section-blocks">
+                ARTICLES
+            </div>
+            <div class="videos section-blocks">
+                VIDEOS
+            </div>
+            <div class="books section-blocks">
+                BOOKS
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="grid-container">
             <nav class="navigation column">

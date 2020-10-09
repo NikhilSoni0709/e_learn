@@ -13,3 +13,6 @@ def books(request):
 
 def articles(request):
     return render(request, 'Articles.html')
+
+def trial(request):
+    return render(request, 'trial.html')
