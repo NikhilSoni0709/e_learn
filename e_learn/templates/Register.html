@@ -1,25 +1,49 @@
 {% extends 'base.html' %}
-
-{%block title%}Register Page{%endblock%}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/register.css' %}" media="all">
+<title>Register</title>
+{% endblock %}
 
 {%block content%}
 
 
-<div style="text-align: center;">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <br><br>
-        <input type="text" name="first_name" placeholder="FirstName"><br><br>
-        <input type="text" name="last_name" placeholder="LastName"><br><br>
-        <input type="text" name="username" placeholder="UserName"><br><br>
-        <input type="email" name="email" placeholder="Email"><br><br>
-        <input type="password" name="password1" placeholder="Password"><br><br>
-        <input type="password" name="password2" placeholder="Confirm Password"><br><br>
-        <input type="submit">
-        <a href="http://localhost:8000/Credentials/Login">Already Registered</a>
-    </form>
-</div>
-<div style="text-align: center;">
+<section>
+    <div class="main">
+        <form class="registration-form" method="POST" action="">
+            {% csrf_token %}
+            <div class="form fname">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name">
+            </div>
+            <div class="form lname">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name">
+            </div>
+            <div class="form username">
+                <label for="username">Username</label>
+                <input type="text" name="username">
+            </div>
+            <div class="form email">
+                <label for="email">Email Address</label>
+                <input type="email" name="email">
+            </div>
+            <div class="form password">
+                <label for="password1">Password</label>
+                <input type="password" name="password1" >
+            </div>
+            <div class="form cnf-password">
+                <label for="password2">Confirm Password</label>
+                <input type="password" name="password2">
+            </div>
+            <div class="form submit">
+                <button class="submit-btn" type="submit">SUBMIT</button>
+            </div>
+            <a href="http://localhost:8000/Credentials/Login">Already Registered</a>
+        </form>
+    </div>
+</section>
+<div class="error">
     {%for message in messages%}
     {{message}}
     {%endfor%}

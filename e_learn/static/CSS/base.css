@@ -1,10 +1,15 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
 header{
     position: fixed;
     top: 0;
-    background-color:hsl(202, 33%, 87%);
+    background-color: #181818;
+    color: #ddd6d6;
     height: 3rem;
     width: 100vw;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 1rem;
     font-family: sans-serif;
 }
 
@@ -22,11 +27,12 @@ header ul li{
     align-items: center;
 }
 .nav-logo{
-    width: 2.25rem;
+    width: 2rem;
     align-self: flex-start;
 }
 .nav-heading{
     font-size: 28px;
+    color: #fffffe;
 }
 .nav-search{
     flex: 1;
@@ -35,30 +41,48 @@ header ul li{
     flex-wrap: nowrap;
 }
 .nav-search-input{
-    width: 20rem;
+    width: 25rem;
     height: 1.75rem;
 }
 .nav-search-btn{
     height: 1.75rem;
     cursor: pointer;
+    background-color: hsl(195, 70%, 60%);
+    color: #181818;
+    border-radius: 2px;
+    border: transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 6px hsl(0,0%,0%,.2);
 }
 header .sign{
-    padding: 0.5rem;
+    font-family: sans-serif;
+    height: 1.75rem;
+    padding: 5px 4px;
+    vertical-align: baseline;
     cursor: pointer;
+    background-color: hsl(195, 70%, 60%);
+    color: #181818;
+    border-radius: 2px;
+    border: transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 6px hsl(0,0%,0%,.2);
 }
 .sign a{
-    color: #444;
+    color: #181818;
     font-size: 14px;
     text-decoration: none;
+    
+}
+.header-formatting{
+    height: 3rem;
+    width: 100%;
 }
 
 
 /* FOOTER */
 footer{
-    position: relative;
-    bottom: 0;
-    background-color:#d4d8f0;
-    color: #232946;
+    background-color: #181818;
+    color: #ddd6d6;
     line-height: 1.25;
 }
 footer .grid-container{
@@ -66,14 +90,14 @@ footer .grid-container{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;   
+    margin-top: 0.5rem ;  
     padding: 1rem 0;
 }
 .column{
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    justify-content: space-between;
+    justify-content: space-around;
     position: relative;
     margin-bottom: 1.5rem;
     width: 50%;
@@ -81,25 +105,25 @@ footer .grid-container{
 }
 .navigation::after{
     content: '';
-    background-color: #7782be;
+    background-color: #ddd6d6;
     position: absolute;
     top: 2rem;
     height: 1px;
     width: 100%;
 }
 .footer-current{
-    color: #232946;
+    color:#fffffe;
     font-weight: 600;
     font-size: 18px;
 }
 
 .footer-subhead{
-    color: #222843;
+    color: #ddd6d6;
     font-weight: 600;
 }
 .footer-link{
     text-decoration: none;
-    color: #232946;
+    color: #50c4cf;
 }
 .nav-grp{
     display: flex;
@@ -113,4 +137,7 @@ footer .grid-container{
 }
 .developed_by{
     justify-content: center
+}
+footer a:hover{
+    text-decoration: underline;
 }

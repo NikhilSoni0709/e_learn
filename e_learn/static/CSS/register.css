@@ -1,0 +1,65 @@
+/* SECTION */
+
+section{
+    background-color: #25274d;
+    background-image: url(https://images.unsplash.com/photo-1549421263-6064833b071b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Form */
+
+section .main{
+    margin: 1rem auto;
+    padding: 2rem 2rem;
+    width: 30vw;
+    border: 1px solid hsl(0, 0%, 40%);
+    background-color: #181818; 
+}
+
+.registration-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section .form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    color: #fffffe;
+}
+.form input{
+    width: 100%;
+    height: 2rem;
+    margin-top: 0.25rem;
+    font-size: 14px;
+    padding: 0.5rem 0.25rem;
+    background-color: #2e2e2e;
+    border: none;
+    box-shadow: 0 2px 1px hsla(0, 0%, 100%, .15), 0 2px 2px hsla(0, 0%, 0%, .1) inset;
+}
+.form input:focus{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    border: 1px solid #52A8EC;
+    outline: none; 
+}
+
+section .submit{
+    width: 60%;
+}
+.submit .submit-btn{
+    background-color: hsl(195, 70%, 60%);
+    color: #181818;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    height: 2.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px hsl(0,0%,0%,.2);
+}
