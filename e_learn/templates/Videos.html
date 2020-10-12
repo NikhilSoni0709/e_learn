@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{%block title%}Videos{%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/videos.css' %}" media="all">
+<title>Videos</title>
+{% endblock %}
 
 {% block content %}
 <h1> This is Videos Page </h1> 
@@ -9,4 +13,15 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dxGvjrdPOY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dR8bxrnW8rY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+{% endblock %}
+
+{% block footer %}
+<nav class="navigation column">
+                
+    <a href="http://localhost:8000" class="footer-link">Home</a>
+    <a href="http://localhost:8000/Articles" class="footer-link">Articles</a>
+    <a href="http://localhost:8000/Books" class="footer-link">Books</a>
+    <a href="http://localhost:8000/Videos" class="footer-current">Videos</a>
+   
+</nav>
 {% endblock %}

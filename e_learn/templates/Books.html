@@ -1,12 +1,22 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
 
-{%block title%}Books{%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
+<title>Books</title>
+{% endblock %}
 
 {% block content %}
-<h1>This is Books Page</h1>
-<div style="text-align: center;">
-    <div>
-        <embed src="file_name.pdf" width="100%" height="10%" /><br>
-    </div>
-</div>
-{%endblock%}
+<div>Books page</div>
+{% endblock %}
+
+{% block footer %}
+<nav class="navigation column">
+                
+    <a href="http://localhost:8000" class="footer-link">Home</a>
+    <a href="http://localhost:8000/Articles" class="footer-link">Articles</a>
+    <a href="http://localhost:8000/Books" class="footer-current">Books</a>
+    <a href="http://localhost:8000/Videos" class="footer-link">Videos</a>
+   
+</nav>
+{% endblock %}

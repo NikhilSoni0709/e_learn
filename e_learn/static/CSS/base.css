@@ -11,6 +11,7 @@ header{
     width: 100vw;
     padding: 0.25rem 1rem;
     font-family: sans-serif;
+    z-index: 1;
 }
 
 header ul{
@@ -30,7 +31,8 @@ header ul li{
     width: 2rem;
     align-self: flex-start;
 }
-.nav-heading{
+.nav-heading a{
+    text-decoration: none;
     font-size: 28px;
     color: #fffffe;
 }
@@ -84,6 +86,7 @@ footer{
     background-color: #181818;
     color: #ddd6d6;
     line-height: 1.25;
+    z-index: 1;
 }
 footer .grid-container{
     display: flex;
@@ -112,6 +115,7 @@ footer .grid-container{
     width: 100%;
 }
 .footer-current{
+    text-decoration: none;
     color:#fffffe;
     font-weight: 600;
     font-size: 18px;

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'CSS/register.css' %}" media="all">
 <title>Register</title>
@@ -14,39 +15,39 @@
             {% csrf_token %}
             <div class="form fname">
                 <label for="first_name">First Name</label>
-                <input type="text" name="first_name">
+                <input type="text" name="first_name" required>
             </div>
             <div class="form lname">
                 <label for="last_name">Last Name</label>
-                <input type="text" name="last_name">
+                <input type="text" name="last_name" required>
             </div>
             <div class="form username">
                 <label for="username">Username</label>
-                <input type="text" name="username">
+                <input type="text" name="username" required>
             </div>
             <div class="form email">
                 <label for="email">Email Address</label>
-                <input type="email" name="email">
+                <input type="email" name="email" required>
             </div>
             <div class="form password">
                 <label for="password1">Password</label>
-                <input type="password" name="password1" >
+                <input type="password" name="password1" required>
             </div>
             <div class="form cnf-password">
                 <label for="password2">Confirm Password</label>
-                <input type="password" name="password2">
+                <input type="password" name="password2" required>
+            </div>
+            <div class="error">
+                {%for message in messages%}
+                {{message}}
+                {%endfor%}
             </div>
             <div class="form submit">
                 <button class="submit-btn" type="submit">SUBMIT</button>
             </div>
-            <a href="http://localhost:8000/Credentials/Login">Already Registered</a>
+            <a class="already-reg" href="http://localhost:8000/Credentials/Login">Already Registered</a>
         </form>
     </div>
 </section>
-<div class="error">
-    {%for message in messages%}
-    {{message}}
-    {%endfor%}
-</div>
 
 {%endblock%}

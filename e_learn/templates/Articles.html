@@ -1,11 +1,22 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
-{%block title%}Articles{%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all">
+<title>Article</title>
+{% endblock %}
 
 {% block content %}
-<h1>This is Articles Page</h1>
-<img src="{% static 'images/Parrot.jpg' %}" alt="Parrot" width="300" height="400">
-{%endblock%}
+<div>Articles page</div>
+{% endblock %}
 
-
+{% block footer %}
+<nav class="navigation column">
+                
+    <a href="http://localhost:8000" class="footer-link">Home</a>
+    <a href="http://localhost:8000/Articles" class="footer-current">Articles</a>
+    <a href="http://localhost:8000/Books" class="footer-link">Books</a>
+    <a href="http://localhost:8000/Videos" class="footer-link">Videos</a>
+   
+</nav>
+{% endblock %}

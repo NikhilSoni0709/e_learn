@@ -1,0 +1,34 @@
+/* SECTION */
+
+section{
+    height: 76vh;
+    background-color: #25274d;
+    background-image: url(https://images.unsplash.com/photo-1549421263-6064833b071b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Form */
+
+section .main{
+    padding: 2rem 2rem;
+    width: 20rem;
+    border: 1px solid hsl(0, 0%, 40%);
+    background-color: #181818; 
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.new-acc{
+    text-decoration: none;
+    color: #50c4cf;
+}
+.new-acc:hover{
+    text-decoration: underline;
+}

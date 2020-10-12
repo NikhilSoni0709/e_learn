@@ -12,7 +12,7 @@
     <header>
         <ul class="navigation-bar">
             <li class='nav-logo'><img src="{% static 'images/stocks-logo2.png'%}" alt="logo"></li>
-            <li class='nav-heading'>Stock</li>
+            <li class='nav-heading'><a href="http://localhost:8000">Stock</a></li>
             <li class="nav-search">
                 <form>
                     <input class="nav-search-input">
@@ -33,12 +33,16 @@
     
     <footer>
         <div class="grid-container">
+            {% block footer %}
             <nav class="navigation column">
-                <span class="footer-current">HOME</span>
-                <a href="#" class="footer-link">Articles</a>
-                <a href="#" class="footer-link">Videos</a>
-                <a href="#" class="footer-link">Books</a>
+                
+                <a href="http://localhost:8000" class="footer-current">Home</a>
+                <a href="http://localhost:8000/Articles" class="footer-link">Articles</a>
+                <a href="http://localhost:8000/Books" class="footer-link">Books</a>
+                <a href="http://localhost:8000/Videos" class="footer-link">Videos</a>
+               
             </nav>
+            {% endblock %}
             <div class="developed_by">
                 <span class="footer-subhead">Developed by</span>
                 <a class="footer-link" href="#">Nikhil soni</a>

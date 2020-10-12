@@ -1,23 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{%block title%}Login Page{%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/login.css' %}" media="all">
+<link rel="stylesheet" href="{% static 'CSS/register.css' %}" media="all">
+<title>Login</title>
+{% endblock %}
 
 {%block content%}
 
-<div style="text-align: center;">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <br><br>
-        <input type="text" name="username" placeholder="UserName"><br><br>
-        <input type="email" name="email" placeholder="Email"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
-        <input type="submit">
-    </form>
-</div>
-<div style="text-align: center;">
-    {%for message in messages%}
-    {{message}}
-    {%endfor%}
-</div>
+<section>
+    <div class="main">
+        <form class="login-form">
+            <div class="form username">
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+            </div>
+            <div class="form email">
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+            </div>
+            <div class="form password">
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            </div>
+            <div class="error">
+                {%for message in messages%}
+                {{message}}
+                {%endfor%}
+            </div>
+            <div class="form submit">
+            <button class="submit-btn" type="submit">SUBMIT</button>
+            </div>
+            <a class="new-acc" href="http://localhost:8000/Credentials/Register">Create account</a>
+        </form>
+    </div>
+</section>
 
-{%endblock%}
+
+{% endblock %}
