@@ -7,7 +7,19 @@
 {% endblock %}
 
 {% block content %}
-<div>Articles page</div>
+<h1 class="heading-1">Articles page</h1>
+    <div class="container">
+        {%for news in news.articles%}
+            <div class="card">
+                <img class="card-img-top" src="{{news.urlToImage}}" alt="{{news.source.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{news.title}}</h5>
+                    <p class="card-text">{{news.description|truncatechars:150}}</p>
+                    <a href="{{news.url}}" target="_blank" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
 {% endblock %}
 
 {% block footer %}
@@ -20,3 +32,8 @@
    
 </nav>
 {% endblock %}
+
+
+
+
+

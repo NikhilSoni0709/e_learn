@@ -1,0 +1,23 @@
+/* Heading */
+.heading-1{
+    font-size:42px;
+    text-align: center;
+}
+
+/* Main grid */
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 3rem;
+    grid-gap: 1rem;
+}
+
+/* Grid Element */
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #16161a;
+    color:#94a1b2;
+}
