@@ -1,3 +1,12 @@
+:root{
+    --btn-bg: hsl(195, 70%, 60%);
+    --btn-txt:#fffffe;
+    /*   */
+}
+
+
+
+
 body{
     display: flex;
     flex-direction: column;
@@ -49,7 +58,7 @@ header ul li{
 .nav-search-btn{
     height: 1.75rem;
     cursor: pointer;
-    background-color: hsl(195, 70%, 60%);
+    background-color: var(--btn-bg);
     color: #181818;
     border-radius: 2px;
     border: transparent;
@@ -62,7 +71,7 @@ header .sign{
     padding: 5px 4px;
     vertical-align: baseline;
     cursor: pointer;
-    background-color: hsl(195, 70%, 60%);
+    background-color: var(--btn-bg);
     color: #181818;
     border-radius: 2px;
     border: transparent;
@@ -127,7 +136,7 @@ footer .grid-container{
 }
 .footer-link{
     text-decoration: none;
-    color: #50c4cf;
+    color: var(--btn-bg);
 }
 .nav-grp{
     display: flex;
