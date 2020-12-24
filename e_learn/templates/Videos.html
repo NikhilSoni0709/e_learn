@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'CSS/videos.css' %}" media="all">
@@ -7,11 +8,13 @@
 {% endblock %}
 
 {% block content %}
-<h1> This is Videos Page </h1> 
+<h1> 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZwKhufmMxko" frameborder="0" allowfullscreen></iframe><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dxGvjrdPOY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dR8bxrnW8rY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+    {%for v in docs%}
+        {{v.vName}}<br>
+        {% video v.vUrl 'medium' %}<br>
+        {{v.vPriority}}<br>
+    {%endfor%}
 </div>
 
 {% endblock %}

@@ -7,7 +7,16 @@
 {% endblock %}
 
 {% block content %}
-<div>Books page</div>
+    {%for book in books%}
+        <div>
+            <div>
+                <img src="{{book.bImage}}" alt="cannot display"><br>
+            </div>
+            {{book.bTitle}}<br>
+            <a href="{{book.book}}" download>Download book</a><br>
+            Book level = {{book.bPriority}}<br>
+        </div>
+    {%endfor%}
 {% endblock %}
 
 {% block footer %}
