@@ -1,4 +1,6 @@
 :root{
+    --background-card: #16161a;
+    --background-container: #242629;
     --btn-bg: hsl(195, 70%, 60%);
     --btn-txt:#fffffe;
     /*   */

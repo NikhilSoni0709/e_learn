@@ -1,0 +1,30 @@
+.books-page {
+    background-color: var(--background-container);
+}
+
+h1 {
+    font-size:42px;
+    color: #fffffe;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 2rem 5rem;
+    grid-gap: 4rem;
+} 
+
+.card {
+    grid-template-rows: max(22rem) 1fr !important;
+    padding: 2rem !important;
+}
+
+.card-title {
+    padding-top: 1rem;
+}
+
+.card-img-top {
+    height: 100% !important; 
+}

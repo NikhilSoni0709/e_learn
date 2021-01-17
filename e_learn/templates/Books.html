@@ -3,20 +3,30 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
+<link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all">
 <title>Books</title>
 {% endblock %}
 
 {% block content %}
-    {%for book in books%}
-        <div>
-            <div>
-                <img src="/media/{{book.bImage}}" alt="cannot display"><br>
+<div class="books-page">
+    <h1>Books</h1>
+    <div class="wrapper">
+        {%for book in books%}
+            <div class="card">
+                <img src="/media/{{book.bImage}}" class="card-img-top" alt="book image"> 
+                <div class="card-body">   
+                    <span class="card-title">
+                        {{book.bTitle}}
+                    </span>
+                    <span class="card-text">Book level = {{book.bPriority}}</span>
+                    <span class="card-read-more">
+                        <a href="/media/{{book.book}}" class="card-more-link" download>Download book</a>
+                    </span>
+                </div>
             </div>
-            {{book.bTitle}}<br>
-            <a href="/media/{{book.book}}" download>Download book</a><br>
-            Book level = {{book.bPriority}}<br>
-        </div>
-    {%endfor%}
+        {%endfor%}
+    </div>
+</div>
 {% endblock %}
 
 {% block footer %}

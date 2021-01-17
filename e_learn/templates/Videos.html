@@ -8,15 +8,21 @@
 {% endblock %}
 
 {% block content %}
-<h1> 
-<div style="text-align: center;">
-    {%for v in docs%}
-        {{v.vName}}<br>
-        {% video v.vUrl 'medium' %}<br>
-        {{v.vPriority}}<br>
-    {%endfor%}
+<div class="video-page">
+    <h1>Videos</h1>
+    <div class="video-container">
+        {%for v in docs%}
+            <div class="video-card">
+                <div class="video-info">
+                    <span class="video-title">{{v.vName}}</span>
+                    <span class="video-priority">{{v.vPriority}} </span>
+                </div>
+                <div class="video">{% video v.vUrl 'medium' %}</div>            
+            </div>
+        {%endfor%}
+    </div>
 </div>
-
+<script src="{% static 'scripts/videos.js' %}"></script>
 {% endblock %}
 
 {% block footer %}
@@ -29,6 +35,8 @@
    
 </nav>
 {% endblock %}
+
+
 
 
 

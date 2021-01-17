@@ -1,6 +1,6 @@
 /* Cover */
-.books-page{
-    background-color: #242629;
+.article-page{
+    background-color: var(--background-container);
 }
 
 
@@ -9,6 +9,7 @@
     font-size:42px;
     color: #fffffe;
     text-align: center;
+    margin-top: 1rem;
 }
 
 /* Main grid */
@@ -24,9 +25,8 @@
     padding: 1rem;
     display: grid;
     grid-template-rows: 13rem 1fr;
-    background-color: #16161a;
+    background-color: var(--background-card);
     font-family: sans-serif;
-    border: 3px;
 }
 .card:hover{
     box-shadow: 0 0 15px hsl(180,10%,30%);
@@ -67,6 +67,6 @@
     margin-top: 0.25rem;
     padding: 0.25rem 0.5rem;
     font-size: 14px;
-    color:#fffffe;
+    color: #181818;
     background-color: var(--btn-bg);
 }

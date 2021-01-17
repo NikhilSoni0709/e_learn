@@ -1,0 +1,52 @@
+.video-page {
+    background-color: var(--background-container);
+}
+
+.video-page h1 {
+    font-size:42px;
+    color: #fffffe;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.video-container {
+    font-size: 32px;
+    background-color: var(--background-container);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fffffe;
+}
+ 
+.video-card {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.video-card > * {
+    margin: 0.5rem 0;
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-between;
+}
+.video {
+    height: 60vh;
+    width: 70vw;
+}
+.video iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.video-title {
+    font-size: 24px;
+}
+
+.video-priority {
+    font-size: 16px;
+}
+
