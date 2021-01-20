@@ -11,7 +11,8 @@
 
 <section>
     <div class="main">
-        <form class="login-form">
+        <form class="login-form" method="POST">
+            {% csrf_token %}
             <div class="form username">
             <label for="username">Username</label>
             <input type="text" name="username" required>

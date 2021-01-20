@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
+<link rel="stylesheet" href="{% static 'css/books.css' %}" media="all">
 <!-- <link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all"> -->
 <title>Books</title>
 {% endblock %}
@@ -19,6 +19,7 @@
                         <span class="card-title">
                             {{book.bTitle}}
                         </span>
+                        <span class="card-text">Author : {{book.author}}</span>
                         <span class="card-text">Book level : {{book.bPriority}}</span>
                     </div>
                     <span class="card-download">
