@@ -61,6 +61,10 @@
     flex: 1;
     display: flex;
 }
+.card-read-more a:hover {
+    box-shadow: 0 0 10px hsl(180,10%,30%);
+}
+
 .card-more-link{
     align-self: flex-end;
     text-decoration: none;

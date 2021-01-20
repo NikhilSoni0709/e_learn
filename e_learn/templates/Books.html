@@ -3,24 +3,29 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
-<link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all">
+<!-- <link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all"> -->
 <title>Books</title>
 {% endblock %}
-
+ 
 {% block content %}
 <div class="books-page">
     <h1>Books</h1>
     <div class="wrapper">
         {%for book in books%}
             <div class="card">
-                <img src="/media/{{book.bImage}}" class="card-img-top" alt="book image"> 
+                <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
                 <div class="card-body">   
-                    <span class="card-title">
-                        {{book.bTitle}}
-                    </span>
-                    <span class="card-text">Book level = {{book.bPriority}}</span>
-                    <span class="card-read-more">
-                        <a href="/media/{{book.book}}" class="card-more-link" download>Download book</a>
+                    <div class="card-details">
+                        <span class="card-title">
+                            {{book.bTitle}}
+                        </span>
+                        <span class="card-text">Book level : {{book.bPriority}}</span>
+                    </div>
+                    <span class="card-download">
+                        <a href="/media/{{book.book}}" class="card-download-link" download>
+                            Download
+                            <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
+                        </a>
                     </span>
                 </div>
             </div>

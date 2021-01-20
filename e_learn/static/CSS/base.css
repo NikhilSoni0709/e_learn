@@ -7,7 +7,7 @@
 }
 
 
-
+ 
 
 body{
     display: flex;
@@ -23,6 +23,7 @@ header{
     padding: 0.25rem 1rem;
     font-family: sans-serif;
     z-index: 1;
+    box-shadow: 0 0 10px rgba(69, 84, 84, 0.7);
 }
 
 header ul{
@@ -81,10 +82,13 @@ header .sign{
     box-shadow: 0 4px 6px hsl(0,0%,0%,.2);
 }
 .sign a{
+    padding: 0.5rem;
     color: #181818;
     font-size: 14px;
     text-decoration: none;
-    
+}
+.sign:hover, .nav-search-btn:hover {
+	box-shadow: 0 0 10px hsl(180,10%,30%);
 }
 .header-formatting{
     height: 3rem;
