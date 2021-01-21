@@ -13,6 +13,7 @@ class Books(models.Model):
     bTitle = models.CharField(max_length=200)
     bImage = models.ImageField(upload_to='Images')
     book = models.FileField(upload_to='books')
+    author = models.CharField(max_length=150)
     bPriority = models.CharField(max_length=20, choices=priority_status, default= '1')
 
     def __str__(self):

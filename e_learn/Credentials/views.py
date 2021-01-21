@@ -45,3 +45,8 @@ def showRegisterPage(request):
             return redirect('Register')
     else:
         return render(request, 'Register.html')
+
+
+def showLogoutPage(request):
+    auth.logout(request)
+    return redirect('home')
