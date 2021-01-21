@@ -4,7 +4,6 @@ import requests
 from .models import Books, Videos
 
 # Create your views here.
-
 def showHome(request):
     return render(request,'home.html')
 

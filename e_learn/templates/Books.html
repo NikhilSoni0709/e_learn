@@ -21,12 +21,12 @@
                         </span>
                         <span class="card-text">Book level : {{book.bPriority}}</span>
                     </div>
-                    <span class="card-download">
+                    <div class="download-details">
                         <a href="/media/{{book.book}}" class="card-download-link" download>
                             Download
                             <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
         {%endfor%}
