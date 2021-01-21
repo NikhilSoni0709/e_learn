@@ -4,41 +4,45 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
 <link rel="stylesheet" href="{% static 'CSS/videos.css' %}" media="all">
-<!-- <link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all"> -->
+<link rel="stylesheet" href="{% static 'CSS/search.css' %}" media="all">
 <title>Search result</title>
 {% endblock %}
 {% block content %} 
-    Books related to {{searched}}
-    {%for book in searchs_books%}
-        <div class="card">
-            <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
-            <div class="card-body">   
-                <div class="card-details">
-                    <span class="card-title">
-                        {{book.bTitle}}
-                    </span>
-                    <span class="card-text">Author : {{book.author}}</span>
-                    <span class="card-text">Book level : {{book.bPriority}}</span>
+    <div class="container">
+        Books related to {{searched}}
+        {%for book in searchs_books%}
+            <div class="wrapper">
+                <div class="card">
+                    <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
+                    <div class="card-body">   
+                        <div class="card-details">
+                            <span class="card-title">
+                                {{book.bTitle}}
+                            </span>
+                            <span class="card-text">Author : {{book.author}}</span>
+                            <span class="card-text">Book level : {{book.bPriority}}</span>
+                        </div>
+                        <span class="card-download">
+                            <a href="/media/{{book.book}}" class="card-download-link" download>
+                                Download
+                                <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
+                            </a>
+                        </span>
+                    </div>
                 </div>
-                <span class="card-download">
-                    <a href="/media/{{book.book}}" class="card-download-link" download>
-                        Download
-                        <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
-                    </a>
-                </span>
-            </div>
-        </div>
-    {%endfor%}
-    Videos related to {{searched}}
-    <div>
-        {%for v in searchs_videos%}
-            <div class="video-card">
-                <div class="video-info">
-                    <span class="video-title">{{v.vName}}</span>
-                    <span class="video-priority">{{v.vPriority}} </span>
-                </div>
-                <div class="video">{% video v.vUrl 'medium' %}</div>            
             </div>
         {%endfor%}
-    </div> 
+        Videos related to {{searched}}
+        {%for v in searchs_videos%}
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-info">
+                        <span class="video-title">{{v.vName}}</span>
+                        <span class="video-priority">{{v.vPriority}} </span>
+                    </div>
+                    <div class="video">{% video v.vUrl 'medium' %}</div>            
+                </div>
+            </div>
+        {%endfor%}
+    </div>
 {% endblock %}
