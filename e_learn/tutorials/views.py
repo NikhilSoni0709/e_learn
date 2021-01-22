@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import json
 import requests
 from .models import Books, Videos
@@ -36,10 +36,22 @@ def search(request):
         result_books = Books.objects.filter(Q(bTitle__icontains=search) | 
                                     Q(author__icontains=search)  )
         result_videos = Videos.objects.filter(Q(vName__icontains=search))
-        # print(result.type())
-        # if result:
-        return render(request,'search.html', { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':search})
-        # else:
-        #     messages.info(request, "No result found")
-        #     return render(request, "search.html")
+        
+        news_request = requests.get("http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9212ff85b9ad4da68751ea8bfaeb8288")
+
+        news = json.loads(news_request.content)
+
+        lst = list(news['articles'])
+        result_articles = list()
+        for news in lst:
+            if(search in news['title']):
+                result_articles.append(news)
+                continue
+            if(search in news['description']):
+                result_articles.append(news)
+
+        if not (result_books or result_videos or result_articles):
+            messages.info(request, "No result found")
+            return redirect('search')
+        return render(request,'search.html', { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':search, 'searchs_articles':result_articles})
     return render(request, 'search.html', )

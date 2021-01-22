@@ -20,7 +20,7 @@
                             {{book.bTitle}}
                         </span>
                         <span class="card-text">Author : {{book.author}}</span>
-                        <span class="card-text">Book level : {{book.bPriority}}</span>
+                        <span class="card-text">{{book.bDescip|truncatechars:100}}</span>
                     </div>
                     <div class="download-details">
                         <a href="/media/{{book.book}}" class="card-download-link" download>

@@ -14,7 +14,7 @@ class Books(models.Model):
     bImage = models.ImageField(upload_to='Images')
     book = models.FileField(upload_to='books')
     author = models.CharField(max_length=150)
-    bPriority = models.CharField(max_length=20, choices=priority_status, default= '1')
+    bDescip = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.bTitle
@@ -27,7 +27,8 @@ class Videos(models.Model):
     )
     vName = models.CharField(max_length=200)
     vUrl = EmbedVideoField(blank=True)
-    vPriority = models.CharField(max_length=20, choices=priority_status, default= 'Intermediate')
+    vDescip = models.CharField(max_length=1000)
+    vCreator = models.CharField(max_length=100)
     
     def __str__(self):
         return self.vName

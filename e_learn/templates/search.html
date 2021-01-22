@@ -5,13 +5,22 @@
 <link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
 <link rel="stylesheet" href="{% static 'CSS/videos.css' %}" media="all">
 <link rel="stylesheet" href="{% static 'CSS/search.css' %}" media="all">
+<link rel="stylesheet" href="{% static 'css/articles.css' %}" media="all">
 <title>Search result</title>
 {% endblock %}
 {% block content %} 
+    
     <div class="container">
+        {%if messages%}
+        <h1>
+            {%for message in messages%}
+                    {{message}}
+            {%endfor%}
+        </h1>
+        {%else%}
         Books related to {{searched}}
+        <div class="wrapper"> 
         {%for book in searchs_books%}
-            <div class="wrapper">
                 <div class="card">
                     <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
                     <div class="card-body">   
@@ -30,19 +39,37 @@
                         </span>
                     </div>
                 </div>
-            </div>
         {%endfor%}
+    </div>
         Videos related to {{searched}}
+        <div class="video-container"></div>
         {%for v in searchs_videos%}
-            <div class="video-container">
+            
                 <div class="video-card">
                     <div class="video-info">
                         <span class="video-title">{{v.vName}}</span>
                         <span class="video-priority">{{v.vPriority}} </span>
                     </div>
                     <div class="video">{% video v.vUrl 'medium' %}</div>            
-                </div>
+                
             </div>
         {%endfor%}
     </div>
+        Articles related to {{searched}}
+    <div class="article-container">
+        {%for news in searchs_articles%}
+        <div class="card">
+            <img class="card-img-top" src="{{news.urlToImage}}" alt="{{news.source.name}}">
+            <div class="card-body">
+                <div class="card-title">{{news.title}}</div>
+                <p class="card-text">{{news.description|truncatechars:150}}</p>
+                <div class="card-read-more">
+                        <a href="{{news.url}}" target="_blank" class="card-more-link">Read More</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    </div>
+    {%endif%}
 {% endblock %}
