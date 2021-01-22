@@ -22,7 +22,7 @@
             </li>
             {% if user.is_authenticated %}
             <li> 
-                Hello {{user.first_name}} !
+                Hello {{user.first_name}} 
             </li>
             <li class='sign'> 
                 <a class="register" href="http://localhost:8000/Credentials/logout">LOGOUT</a>
@@ -46,10 +46,10 @@
             {% block footer %}
             <nav class="navigation column">
                 
-                <a href="http://localhost:8000" class="footer-current">Home</a>
-                <a href="http://localhost:8000/Articles" class="footer-link">Articles</a>
-                <a href="http://localhost:8000/Books" class="footer-link">Books</a>
-                <a href="http://localhost:8000/Videos" class="footer-link">Videos</a>
+                <a href="/" class="footer-current">Home</a>
+                <a href="/Articles" class="footer-link">Articles</a>
+                <a href="/Books" class="footer-link">Books</a>
+                <a href="/Videos" class="footer-link">Videos</a>
                
             </nav>
             {% endblock %}

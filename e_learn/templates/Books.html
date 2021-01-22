@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/books.css' %}" media="all">
-<!-- <link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all"> -->
+<link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
 <title>Books</title>
 {% endblock %}
  
@@ -12,24 +11,24 @@
     <h1>Books</h1>
     <div class="wrapper">
         {%for book in books%}
-            <div class="card">
+            <article class="book-cards">
                 <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
-                <div class="card-body">   
+                <div class="card-body-book">   
                     <div class="card-details">
-                        <span class="card-title">
+                        <span class="card-title-book">
                             {{book.bTitle}}
                         </span>
-                        <span class="card-text">Author : {{book.author}}</span>
-                        <span class="card-text">{{book.bDescip|truncatechars:100}}</span>
-                    </div>
-                    <div class="download-details">
-                        <a href="/media/{{book.book}}" class="card-download-link" download>
-                            Download
-                            <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
-                        </a>
+                        <span class="card-text-book">Author : {{book.author}}</span>
+                        <span class="card-text-book">{{book.bDescip|truncatechars:300}}</span>
+                        <div class="download-details">
+                            <a href="/media/{{book.book}}" class="card-download-link" download>
+                                Download
+                                <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </article>
         {%endfor%}
     </div>
 </div>
@@ -38,10 +37,10 @@
 {% block footer %}
 <nav class="navigation column">
                 
-    <a href="http://localhost:8000" class="footer-link">Home</a>
-    <a href="http://localhost:8000/Articles" class="footer-link">Articles</a>
-    <a href="http://localhost:8000/Books" class="footer-current">Books</a>
-    <a href="http://localhost:8000/Videos" class="footer-link">Videos</a>
+    <a href="/" class="footer-link">Home</a>
+    <a href="/Articles" class="footer-link">Articles</a>
+    <a href="/Books" class="footer-current">Books</a>
+    <a href="/Videos" class="footer-link">Videos</a>
    
 </nav>
 {% endblock %}

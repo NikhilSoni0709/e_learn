@@ -12,15 +12,15 @@
     <h1>Videos</h1>
     <div class="video-container">
         {%for v in docs%}
-            <div class="video-card">
+            <article class="video-card">
                 <div class="video-info">
                     <span class="video-title">{{v.vName}}</span>
                     
                 </div>
-                <span class="video-priority">{{v.vCreator}} </span>
-                <span class="video-priority">{{v.vDescip }} </span>
+                <span class="video-creator">{{v.vCreator}} </span>
+                <span class="video-desp">{{v.vDescip }} </span>
                 <div class="video">{% video v.vUrl 'medium' %}</div>            
-            </div>
+            </article>
         {%endfor%}
     </div>
 </div>

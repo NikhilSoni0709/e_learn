@@ -2,3 +2,19 @@
     background-color: var(--background-container);
     color: #fffffe;
 }
+
+.no-result {
+    padding: 2rem 0;
+    text-align: center;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    padding-top: 2rem;
+    padding-bottom: -1rem;
+    text-align: center;
+}
+
+.wrapper, .video-container, .article-container  {
+    margin: 1rem 5rem !important;
+}

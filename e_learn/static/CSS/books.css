@@ -15,25 +15,23 @@ h1 {
   justify-content: center;
   align-items: center;
 	color: #fffffe;
-	margin: 2rem;
+  margin: 2rem 6rem;
 }
 
-.card {
+.book-cards {
   display: flex;
   flex-direction: row;
   padding: 1rem;
   background-color: var(--background-card);
-  margin: 1rem;
-  width: 80%;
-  height: 30vh;
+  margin: 2rem;
+  min-height: 30vh;
 }
 
 .card-img {
-  height: 100%;
   width: 10rem;
 }
 
-.card-body {
+.card-body-book {
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -46,15 +44,20 @@ h1 {
   flex-direction: column;
   height: 100%;
 }
-.card-title {
+.card-title-book {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 0.75rem;
 }
-.card-text {
-	opacity: 0.7;
-}
+.card-text-book {
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+} 
 
+.download-details {
+  flex: 1;
+  display: flex;
+}
 .card-download-link {
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -62,8 +65,8 @@ h1 {
 	font-weight: 500;
 	border-radius: 3px;
   color: #181818;
-	background-color: var(--btn-bg);
-
+  background-color: var(--btn-bg);
+  align-self: flex-end;
 }
 .card-download-link:hover {
 	box-shadow: 0 0 10px hsl(180,10%,30%);

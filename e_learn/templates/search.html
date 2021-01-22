@@ -5,57 +5,59 @@
 <link rel="stylesheet" href="{% static 'CSS/books.css' %}" media="all">
 <link rel="stylesheet" href="{% static 'CSS/videos.css' %}" media="all">
 <link rel="stylesheet" href="{% static 'CSS/search.css' %}" media="all">
-<link rel="stylesheet" href="{% static 'css/articles.css' %}" media="all">
+<link rel="stylesheet" href="{% static 'CSS/articles.css' %}" media="all">
 <title>Search result</title>
 {% endblock %}
-{% block content %} 
-    
-    <div class="container">
-        {%if messages%}
+{% block content %}
+
+<div class="container">
+    {%if messages%}
+    <div class="no-result">
         <h1>
             {%for message in messages%}
-                    {{message}}
+            {{message}}
             {%endfor%}
         </h1>
-        {%else%}
-        Books related to {{searched}}
-        <div class="wrapper"> 
+    </div>
+    {%else%}
+    <h2>Books related to {{searched}}</h2>
+    <div class="wrapper">
         {%for book in searchs_books%}
-                <div class="card">
-                    <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
-                    <div class="card-body">   
-                        <div class="card-details">
-                            <span class="card-title">
-                                {{book.bTitle}}
-                            </span>
-                            <span class="card-text">Author : {{book.author}}</span>
-                            <span class="card-text">Book level : {{book.bPriority}}</span>
-                        </div>
-                        <span class="card-download">
-                            <a href="/media/{{book.book}}" class="card-download-link" download>
-                                Download
-                                <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
-                            </a>
-                        </span>
+        <article class="book-cards">
+            <img src="/media/{{book.bImage}}" class="card-img" alt="book image"> 
+            <div class="card-body-book">   
+                <div class="card-details">
+                    <span class="card-title-book">
+                        {{book.bTitle}}
+                    </span>
+                    <span class="card-text-book">Author : {{book.author}}</span>
+                    <span class="card-text-book">{{book.bDescip|truncatechars:300}}</span>
+                    <div class="download-details">
+                        <a href="/media/{{book.book}}" class="card-download-link" download>
+                            Download
+                            <img src="{% static 'images/downloading.png' %}" class="download-icon" alt="icon">
+                        </a>
                     </div>
                 </div>
+            </div>
+        </article>
         {%endfor%}
     </div>
-        Videos related to {{searched}}
-        <div class="video-container"></div>
+    <h2>Videos related to {{searched}}</h2>
+    <div class="video-container">
         {%for v in searchs_videos%}
-            
-                <div class="video-card">
-                    <div class="video-info">
-                        <span class="video-title">{{v.vName}}</span>
-                        <span class="video-priority">{{v.vPriority}} </span>
-                    </div>
-                    <div class="video">{% video v.vUrl 'medium' %}</div>            
+        <article class="video-card">
+            <div class="video-info">
+                <span class="video-title">{{v.vName}}</span>
                 
             </div>
+            <span class="video-creator">{{v.vCreator}} </span>
+            <span class="video-desp">{{v.vDescip }} </span>
+            <div class="video">{% video v.vUrl 'medium' %}</div>            
+        </article>
         {%endfor%}
     </div>
-        Articles related to {{searched}}
+    <h2>Articles related to {{searched}}</h2>
     <div class="article-container">
         {%for news in searchs_articles%}
         <div class="card">
@@ -64,12 +66,12 @@
                 <div class="card-title">{{news.title}}</div>
                 <p class="card-text">{{news.description|truncatechars:150}}</p>
                 <div class="card-read-more">
-                        <a href="{{news.url}}" target="_blank" class="card-more-link">Read More</a>
+                    <a href="{{news.url}}" target="_blank" class="card-more-link">Read More</a>
                 </div>
             </div>
         </div>
         {%endfor%}
     </div>
-    </div>
-    {%endif%}
+</div>
+{%endif%}
 {% endblock %}
