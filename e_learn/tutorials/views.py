@@ -34,8 +34,8 @@ def search(request):
     if(request.method == 'POST'):
         search = request.POST['search']
         result_books = Books.objects.filter(Q(bTitle__icontains=search) | 
-                                    Q(author__icontains=search)  )
-        result_videos = Videos.objects.filter(Q(vName__icontains=search))
+                                    Q(author__icontains=search) | Q(bDescip__icontains=search)  )
+        result_videos = Videos.objects.filter(Q(vName__icontains=search) | Q(vDescip__icontains=search) | Q(vCreator__icontains=search))
         
         news_request = requests.get("http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9212ff85b9ad4da68751ea8bfaeb8288")
 
@@ -47,8 +47,8 @@ def search(request):
             if(search in news['title']):
                 result_articles.append(news)
                 continue
-            if(search in news['description']):
-                result_articles.append(news)
+            # if(search in news['description']):
+            #     result_articles.append(news)
 
         if not (result_books or result_videos or result_articles):
             messages.info(request, "No result found")
