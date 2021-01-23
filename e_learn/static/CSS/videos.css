@@ -19,12 +19,12 @@
     color: #fffffe;
     margin: 2rem 5rem;
 }
- 
+
 .video-card {
     padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
-    margin: 2rem;
+    margin: 0 2rem 2rem 2rem;
     background-color: var(--background-card);
 }
 

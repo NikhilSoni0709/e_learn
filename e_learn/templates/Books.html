@@ -9,7 +9,6 @@
 {% block content %}
 <div class="books-page">
     <h1>Books</h1>
-    <hr>
     <div class="wrapper">
         {%for book in books%}
             <article class="book-cards">
@@ -19,8 +18,8 @@
                         <span class="card-title-book">
                             {{book.bTitle}}
                         </span>
-                        <span class="card-text-book">Author : {{book.author}}</span>
-                        <span class="card-text-book">{{book.bDescip|truncatechars:300}}</span>
+                        <span class="card-author-book">Author : {{book.author}}</span>
+                        <span class="card-text-book">{{book.bDescip|truncatechars:400}}</span>
                         <div class="download-details">
                             <a href="/media/{{book.book}}" class="card-download-link" download>
                                 Download

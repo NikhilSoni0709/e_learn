@@ -23,12 +23,13 @@ h1 {
   flex-direction: row;
   padding: 1rem;
   background-color: var(--background-card);
-  margin: 2rem;
-  min-height: 30vh;
+  margin: 0rem 2rem 2rem 2rem;
+  width: 100%;
 }
 
 .card-img {
   width: 10rem;
+  height: 15rem;
 }
 
 .card-body-book {
@@ -45,11 +46,17 @@ h1 {
   height: 100%;
 }
 .card-title-book {
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 700;
 	margin-bottom: 0.75rem;
 }
+.card-author-book {
+  opacity: 0.8;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
 .card-text-book {
+  font-size: 16px;
   opacity: 0.7;
   margin-bottom: 0.5rem;
 } 
