@@ -12,9 +12,9 @@
     <header> 
         <ul class="navigation-bar">
             <li class='nav-logo'><img src="{% static 'images/stocks-logo2.png'%}" alt="logo"></li>
-            <li class='nav-heading'><a href="http://localhost:8000">Stock</a></li>
+            <li class='nav-heading'><a href="/">Stock</a></li>
             <li class="nav-search">
-                <form method="POST" action='http://localhost:8000/search/'>
+                <form method="POST" action='/search/'>
                     {% csrf_token %}
                     <input class="nav-search-input" name="search">
                     <button class="nav-search-btn">SEARCH</button>
@@ -25,14 +25,14 @@
                 Hello {{user.first_name}} 
             </li>
             <li class='sign'> 
-                <a class="register" href="http://localhost:8000/Credentials/logout">LOGOUT</a>
+                <a class="register" href="/Credentials/logout">LOGOUT</a>
             </li>
             {% else %}
             <li class='sign'> 
                 <a class="register" href="Credentials/Register">REGISTER</a>
             </li>
             <li class='sign'>
-                <a class="login" href="http://localhost:8000/Credentials/Login">LOGIN</a>
+                <a class="login" href="/Credentials/Login">LOGIN</a>
             </li>
             {% endif %} 
         </ul>
