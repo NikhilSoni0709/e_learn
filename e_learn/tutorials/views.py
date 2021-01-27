@@ -4,8 +4,8 @@ import requests
 from .models import Books, Videos
 from django.contrib import messages
 from django.db.models import Q
+import re
 # Create your views here.
-
 
 def showHome(request):
     return render(request,'home.html')
@@ -32,14 +32,20 @@ def trial(request):
 
 def search(request):
     if(request.method == 'POST'):
-        search = request.POST['search']
-        result_books = Books.objects.filter(Q(bTitle__icontains=search) | 
-                                    Q(author__icontains=search) | 
-                                    Q(bDescip__icontains=search)  )
-        result_videos = Videos.objects.filter(Q(vName__icontains=search) | 
-                                                Q(vDescip__icontains=search) | 
-                                                Q(vCreator__icontains=search))
-        
+        entired_string = request.POST['search'].split(" ")
+        result_books = Books.objects.none()
+        result_videos = Videos.objects.none()
+
+        for search in entired_string:
+            result_books |= Books.objects.filter(Q(bTitle__icontains=search) | 
+                                        Q(author__icontains=search) | 
+                                        Q(bDescip__icontains=search)  )
+
+            result_videos |= Videos.objects.filter(Q(vName__icontains=search) | 
+                                                    Q(vDescip__icontains=search) | 
+                                                    Q(vCreator__icontains=search))
+
+
         news_request = requests.get("http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9212ff85b9ad4da68751ea8bfaeb8288")
 
         news = json.loads(news_request.content)
@@ -52,9 +58,9 @@ def search(request):
                 continue
             # if(search in news['description']):
             #     result_articles.append(news)
-
+        data = { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':search, 'searchs_articles':result_articles}
         if not (result_books or result_videos or result_articles):
             messages.info(request, "No result found")
             return redirect('search')
-        return render(request,'search.html', { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':search, 'searchs_articles':result_articles})
+        return render(request,'search.html', data)
     return render(request, 'search.html', )
