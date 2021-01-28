@@ -32,9 +32,17 @@ def trial(request):
 
 def search(request):
     if(request.method == 'POST'):
-        entired_string = request.POST['search'].split(" ")
+        string = request.POST['search']
+        entired_string = string.split(" ")
         result_books = Books.objects.none()
         result_videos = Videos.objects.none()
+
+        news_request = requests.get("http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9212ff85b9ad4da68751ea8bfaeb8288")
+
+        news = json.loads(news_request.content)
+        # lst = list()
+        lst = list(news['articles'])
+        result_articles = list()
 
         for search in entired_string:
             result_books |= Books.objects.filter(Q(bTitle__icontains=search) | 
@@ -46,19 +54,13 @@ def search(request):
                                                     Q(vCreator__icontains=search))
 
 
-        news_request = requests.get("http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9212ff85b9ad4da68751ea8bfaeb8288")
+            for news in lst:
+                if(search.lower() in news['title'].lower() or search.lower() in news['description'].lower() ):
+                    if(news not in result_articles):
+                        result_articles.append(news)
 
-        news = json.loads(news_request.content)
 
-        lst = list(news['articles'])
-        result_articles = list()
-        for news in lst:
-            if(search in news['title']):
-                result_articles.append(news)
-                continue
-            # if(search in news['description']):
-            #     result_articles.append(news)
-        data = { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':search, 'searchs_articles':result_articles}
+        data = { 'searchs_videos': result_videos,'searchs_books': result_books, 'searched':string, 'searchs_articles':result_articles}
         if not (result_books or result_videos or result_articles):
             messages.info(request, "No result found")
             return redirect('search')

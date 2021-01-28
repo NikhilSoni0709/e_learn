@@ -20,6 +20,7 @@
         </h1>
     </div>
     {%else%}
+    {% if searchs_books %}
     <h2>Books related to {{searched}}</h2>
     <div class="wrapper">
         {%for book in searchs_books%}
@@ -43,7 +44,11 @@
         </article>
         {%endfor%}
     </div>
+    {%else%}
+    <h2>No books related to {{searched}}</h2>
+    {%endif%}
     <hr>
+    {% if searchs_videos %}
     <h2>Videos related to {{searched}}</h2>
     <div class="video-container">
         {%for v in searchs_videos%}
@@ -58,7 +63,11 @@
         </article>
         {%endfor%}
     </div>
+    {%else%}
+    <h2>No videos related to {{searched}}</h2>
+    {%endif%}
     <hr>
+    {% if searchs_articles %}
     <h2>Articles related to {{searched}}</h2>
     <div class="article-container">
         {%for news in searchs_articles%}
@@ -74,6 +83,9 @@
         </div>
         {%endfor%}
     </div>
+    {%else%}
+    <h2>No articles related to {{searched}}</h2>
+    {%endif%}
 </div>
 {%endif%}
 {% endblock %}
